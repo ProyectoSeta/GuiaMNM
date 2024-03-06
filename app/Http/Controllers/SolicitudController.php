@@ -11,7 +11,7 @@ class SolicitudController extends Controller
      */
     public function index()
     {
-        return $this->view('solicitud');
+        return view('solicitud');
     }
 
     /**
