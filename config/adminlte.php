@@ -324,6 +324,13 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+    [
+            'text'          =>'Sujetos',
+            'route'         =>'sujeto',
+            // 'icon'        => 'fas fa-fw fa-user',   
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
         ['header' => 'Solicitudes'],
         [
             'text' => 'Solicitud de guías',
