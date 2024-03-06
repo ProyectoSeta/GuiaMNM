@@ -12,9 +12,7 @@
 @section('content')
     <p></p>
 
-    <div class="">
-        <button type="button" class="btn btn-primary  btn-sm" data-bs-toggle="modal" data-bs-target="#modal_new_solicitud"><i class='bx bx-plus'></i>Nueva solicitud</button>
-    </div>
+ 
     <script type="text/javascript">
   $(document).on("click","#add",function(e){
     alert("Hola");
