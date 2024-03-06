@@ -29,6 +29,7 @@ Route::get('/solicitud', [App\Http\Controllers\SolicitudController::class, 'inde
 
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 Route::post('/user', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+
 //Route::get('/user/{slug?}/roles', [App\Http\Controllers\UserController::class, 'roles'])->name('user.roles');
 //Route::get('/user/{slug?}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
 //Route::put('/user/{slug?}/updat', [App\Http\Controllers\UserController::class, 'updat'])->name('user.updat');
@@ -36,10 +37,7 @@ Route::post('/user', [App\Http\Controllers\UserController::class, 'store'])->nam
 
 /////// CANTERAS
 
-Route::get('/cantera', 'CanteraController@index');
-Route::get('/cantera', 'CanteraController@getCanteras');
-
-
+Route::get('/cantera', [App\Http\Controllers\CanteraController::class, 'index'])->name('cantera');
 
 
 /////////VISTAS: CLIC SIDEBAR
@@ -49,13 +47,7 @@ Route::get('/cantera', 'CanteraController@getCanteras');
 // })->name('cantera.store');
 
 
-Route::get('/cantera', function () { 
-    return view('cantera');
-})->name('cantera');
 
-Route::get('/solicitud', function () { 
-    return view('solicitud');
-})->name('solicitud');
 
 Route::get('/registro_guia', function () { 
     return view('registro_guia');
