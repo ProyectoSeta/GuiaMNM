@@ -34,14 +34,19 @@ Route::post('/user', [App\Http\Controllers\UserController::class, 'store'])->nam
 //Route::put('/user/{slug?}/updat', [App\Http\Controllers\UserController::class, 'updat'])->name('user.updat');
 //Route::put('/user/{slug?}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 
-Route::get('/cantera', [App\Http\Controllers\CanteraController::class, 'index'])->name('cantera'); 
-Route::post('/cantera', [App\Http\Controllers\CanteraController::class, 'store'])->name('cantera.store');
+/////// CANTERAS
 
-Route::post('/cantera', CanteraController::class .'@store')->name('cantera.store');
+Route::get('/cantera', 'CanteraController@index');
+Route::get('/cantera', 'CanteraController@getCanteras');
 
-Route::post('/cantera', function () {
-    return Request::all();
-})->name('cantera.store');
+
+
+
+/////////VISTAS: CLIC SIDEBAR
+
+// Route::post('/cantera', function () {
+//     return Request::all();
+// })->name('cantera.store');
 
 
 Route::get('/cantera', function () { 

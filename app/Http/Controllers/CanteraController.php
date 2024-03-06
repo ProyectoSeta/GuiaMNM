@@ -15,7 +15,32 @@ class CanteraController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->id();
+        $sujeto = DB::table('sujeto_pasivo')
+                    ->select('id_sujeto')
+                    ->where('id_user',$user);
+
+
+        $canteras = DB::table('canteras')
+                    ->where('id_sujeto',$sujeto);
+        
+        return view('cantera', compact('canteras'));
+        // return view('cantera');
+    }
+
+    public function getCanteras()
+    {
+        // $user = auth()->id();
+        // $sujeto = DB::table('sujeto_pasivo')
+        //             ->select('id_sujeto')
+        //             ->where('id_user',$user);
+
+
+        // $canteras = DB::table('canteras')
+        //             ->where('id_sujeto',$sujeto);
+        
+        // return view('cantera', compact('canteras', $canteras));
+        
     }
 
     /**

@@ -7,6 +7,8 @@
     <script src="{{ asset('jss/bundle.js') }}" defer></script>
     <link href="{{asset('css/datatable.min.css') }}" rel="stylesheet">
     <script src="{{asset('vendor/sweetalert.js') }}"></script>
+    <script src="{{ asset('jss/jquery-3.5.1.js') }}" ></script>
+    <!-- <script type="text/javascript" src="{{ asset('jss/functions.js') }}" ></script> -->
 @stop
 
 @section('content')
@@ -25,25 +27,36 @@
                 <th>Producción</th>
                 <th>Estado</th>          
             </tr>
-            <tr>
-                <td>25</td>
-                <td>Agua Viva II</td>
-                <td>Carretera Nacional Cagua, Villa de Cura, Troncal 2. Haciendita El Banco, Municipio Zamora Estado Aragua.</td>
-                <td class="d-flex flex-column">
-                    <span>Piedra 1</span>
-                    <span>Piedra 2</span>
-                    <span>Piedra ¾</span>
-                    <span>Piedra 4</span>
-                    <span>Arrocillo</span>
-                    <span>Polvillo</span>
-                    <span>Carbonato De Calcio Malla 20</span>
-                    <span>Carbonato De Calcio Malla 200</span> 
-                </td>
-                <td>
-                <span class="badge text-bg-light p-2">Verificando cantera</span>
-                <span class="badge text-bg-success p-2">Cantera verificada</span> 
-                </td>
-            </tr>
+            <tbody id="list_canteras">
+               
+                @foreach ($canteras as $cantera)
+                    <tr>
+                        <td>{{ $cantera->id }}</td>
+                        <td>{{ $cantera->nombre }}</td>
+                        <td>{{ $cantera->direccion }}</td>
+                        <td class="d-flex flex-column">
+                            <!-- <span>Piedra 1</span>
+                            <span>Piedra 2</span>
+                            <span>Piedra ¾</span>
+                            <span>Piedra 4</span>
+                            <span>Arrocillo</span>
+                            <span>Polvillo</span>
+                            <span>Carbonato De Calcio Malla 20</span>
+                            <span>Carbonato De Calcio Malla 200</span>  -->
+                        </td>
+                        <td>
+                            <span class="badge text-bg-light p-2">Verificando cantera</span>
+                            <span class="badge text-bg-success p-2">Cantera verificada</span> 
+                        </td>
+                        <td>
+                            <span class="badge me-1" style="background-color: #ed0000;" role="button" id_cantera='{{ $cantera->id }}' data-bs-toggle="modal" data-bs-target="#modal_delete_guia">
+                                <i class='bx bx-trash-alt fs-6'></i>
+                            </span>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody> 
+            
         </table>
     </div>
     
@@ -65,8 +78,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" style="font-size:14px;">
-                    <form action="POST" action="{{route('cantera.store') }}">
-                    @csrf
+                    <form action="POST" action="">
+                    <!-- @csrf -->
                         <!-- nombre cantera -->
                         <div class="row g-3 align-items-center mb-2">
                             <div class="col-3">
@@ -185,7 +198,7 @@
                     </form>
                     
                  </div>  <!-- cierra modal-body -->
-            </div>  <!-- cierra modal-content -->
+            </div>  cierra modal-content 
         </div>  <!-- cierra modal-dialog -->
     </div>
 
@@ -193,8 +206,7 @@
 
 <!--************************************************-->
 
-
-
+  
 
 @stop
 
@@ -220,10 +232,11 @@
             myInput.focus();
         });
     </script>
-    <script src="{{ asset('jss/jquery-3.5.1.js') }}" ></script>
+    <!-- <script src="{{ asset('jss/jquery-3.5.1.js') }}" ></script> -->
     <script src="{{ asset('jss/datatable.min.js') }}" defer ></script>
     <script src="{{ asset('jss/datatable.bootstrap.js') }}" ></script>
     <script src="{{ asset('jss/toastr.js') }}" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" ></script>
+   
     <script type="text/javascript">
         $(document).ready(function () {
             $('#example').DataTable(
@@ -242,7 +255,19 @@
                     }
                 }
             );
-            
         });
-    </script> 
+    </script>
+    <script>
+        // $(document).ready(function () {
+        //     ShowCantera();
+            
+        // });
+
+        // function ShowCantera(){
+        //     $.get("{{ URL::to('cantera') }}", function(data){
+        //         $('#list_canteras').empty().html(data);
+        //     })
+        // }
+    </script>
+  
 @stop
