@@ -10,14 +10,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-class Cantera extends Model
+class Produccion extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
-    use HasRoles;
+    use HasFactory;
 
     protected $fillable = [
-        'direccion',
-        'nombre',
         'produccion',
     ];
 }

@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('canteras', function (Blueprint $table) {
             $table->increments('id_cantera');
             $table->integer('id_sujeto')->unsigned();
-            $table->string('direccion');
-            $table->enum('mineral',['mármol','pórfido','caolín','magnesita','arena','pizarra','arcilla','caliza','yeso','puzolanas','turbas','Otro']);
-            $table->string('otro_mineral');
             $table->foreign('id_sujeto')->references('id_sujeto')->on('sujeto_pasivos')->onDelete('cascade');
+            $table->string('nombre');
+            $table->string('direccion');
+        //  $table->enum('mineral',['mármol','pórfido','caolín','magnesita','arena','pizarra','arcilla','caliza','yeso','puzolanas','turbas','Otro']);
+         // $table->string('otro_mineral');
+            
             $table->timestamps();
         });
     }

@@ -29,25 +29,25 @@ class UserController extends Controller
      */
     public function store(Request $request){
         $usuario = User::create([
-               'name'=>$request->post('name'),
-              'email'=>$request->post('email'),
-           'password'=>bcrypt($request->post('password'))
+            'name'=>$request->post('name'),
+            'email'=>$request->post('email'),
+            'password'=>bcrypt($request->post('password'))
         ]);
         if($usuario->save()){ // insercion en la tabla User creando el usuario
             $identificador = $usuario->id; // Aca se Obtiene el ID del usuario creado
             $sujeto = new SujetoPasivo(); // SE llama al modelo sujetopasivo
             $sujeto = SujetoPasivo::create([
-                     'id_user'=>$identificador,
-                'tipo_sujeto' => $request->post('tipo_sujeto'),
-                        'rif' => $request->post('rif'),
-               'razon_social' => $request->post('razon_social'),
-                  'direccion' => $request->post('direccion'),
-                  'tlf_movil' => $request->post('tlf_movil'),
-                   'tlf_fijo' => $request->post('tlf_fijo'),
+                    'id_user'=>$identificador,
+                    'tipo_sujeto' => $request->post('tipo_sujeto'),
+                    'rif' => $request->post('rif'),
+                    'razon_social' => $request->post('razon_social'),
+                    'direccion' => $request->post('direccion'),
+                    'tlf_movil' => $request->post('tlf_movil'),
+                    'tlf_fijo' => $request->post('tlf_fijo'),
                     'ci_repr' => $request->post('ci_repr'),
-                   'rif_repr' => $request->post('rif_repr'),
-                   'name_repr' => $request->post('name_repr'),
-                   'tlf_repr' => $request->post('tlf_repr')
+                    'rif_repr' => $request->post('rif_repr'),
+                    'name_repr' => $request->post('name_repr'),
+                    'tlf_repr' => $request->post('tlf_repr')
             ]);
             if ($sujeto->save()) { //insercion en la tabla sujeto pasivo
                 return redirect()->route("solicitud"); // Redirecciona a el controlador que se necesite

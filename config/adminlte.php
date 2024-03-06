@@ -310,9 +310,16 @@ return [
         ],
 
         
+        // [
+        //     'text'        => 'Principal',
+        //     'url'         => 'admin/pages',
+        //     // 'icon'        => 'fas fa-fw fa-user',   
+        //     'label'       => 4,
+        //     'label_color' => 'success',
+        // ],
         [
-            'text'        => 'Principal',
-            'url'         => 'admin/pages',
+            'text'        => 'Cantera(s)',
+            'url'         => 'cantera',
             // 'icon'        => 'fas fa-fw fa-user',   
             'label'       => 4,
             'label_color' => 'success',

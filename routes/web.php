@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/solicitud', [App\Http\Controllers\SolicitudController::class, 'index'])->name('solicitud');
 // Route::view('/solicitud','solicitud.index');
 
+
 /*Usuario sujeto pasivo*/
 
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
@@ -32,7 +34,19 @@ Route::post('/user', [App\Http\Controllers\UserController::class, 'store'])->nam
 //Route::put('/user/{slug?}/updat', [App\Http\Controllers\UserController::class, 'updat'])->name('user.updat');
 //Route::put('/user/{slug?}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 
+Route::get('/cantera', [App\Http\Controllers\CanteraController::class, 'index'])->name('cantera'); 
+Route::post('/cantera', [App\Http\Controllers\CanteraController::class, 'store'])->name('cantera.store');
 
+Route::post('/cantera', CanteraController::class .'@store')->name('cantera.store');
+
+Route::post('/cantera', function () {
+    return Request::all();
+})->name('cantera.store');
+
+
+Route::get('/cantera', function () { 
+    return view('cantera');
+})->name('cantera');
 
 Route::get('/solicitud', function () { 
     return view('solicitud');

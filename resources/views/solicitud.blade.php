@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-12">
             <br><br>
-        <table id="example" class="table display" style="width:100%" >
+        <table id="example" class="table display" style="width:100%; font-size:14px">
         <thead class="bg-primary">
                 <tr>
                     <th scope="col">#</th>
