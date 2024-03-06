@@ -39,7 +39,8 @@ Route::post('/user', [App\Http\Controllers\UserController::class, 'store'])->nam
 
 Route::get('/cantera', [App\Http\Controllers\CanteraController::class, 'index'])->name('cantera');
 
-
+//Sujeto Pasivo
+Route::get('/sujeto', [App\Http\Controllers\SujetoController::class, 'index'])->name('sujeto');
 /////////VISTAS: CLIC SIDEBAR
 
 // Route::post('/cantera', function () {
